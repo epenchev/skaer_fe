@@ -38,6 +38,10 @@
   }
 }
 
+.itemLink {
+  position: relative;
+}
+
 .ItemInfo {
   display: flex;
   flex-direction: column;

@@ -8,7 +8,9 @@ class App extends Component {
     return (
       <div className="App">
         <Toolbar />
-        <MediaItems />
+        <div className="container">
+          <MediaItems />
+        </div>
       </div>
     );
   }
