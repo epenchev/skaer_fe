@@ -20,7 +20,7 @@ export class Toolbar extends  React.Component {
 
   render() {
     return (
-      <Navbar bg="dark" expand="lg">
+      <Navbar bg="dark" expand="lg" fixed="top">
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">

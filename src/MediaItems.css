@@ -1,10 +1,10 @@
 .imgResponsive {
-  width: 100%;
+  width: 150px;
   height: auto;
 }
 
-
 .MediaItems {
+  margin-top: 60px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -19,7 +19,8 @@
 
 @media(min-width: 576px) {
   .MediaItems {
-    justify-content: space-between;
+    justify-content: flex-start;
+    align-content: center;
   }
   .MediaItems a {
     width: 48%;
@@ -28,13 +29,17 @@
 
 @media(min-width: 768px) {
   .MediaItems a {
-    width: 31.5%;
+    width: 29.5%;
   }
 }
 
 @media(min-width: 992px) {
+  .MediaItems {
+    justify-content: flex-start; 
+    align-content: center;
+  }
   .MediaItems a {
-    width: 23%;
+    width: 14%;
   }
 }
 

@@ -24,18 +24,37 @@ body {
   margin: 0 auto;
 }
 
-@media(min-width: 1060px) {
+/*
+@media screen and (min-width: 1060px) {
   .container {
-    width: 960px;
+    width: 1500px;
+    margin: 0 auto;
+  }  
+}
+*/
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1480px;
     margin: 0 auto;
   }
 }
 
+/*
+@media(min-width: 1060px) {
+  .container {
+    width: 1500px;
+    margin: 0 auto;
+  }
+}
+*/
+
+/*
 .imgResponsive {
   width: 100%;
   height: auto;
 }
-
+*/
 
 /* Typography */
 
