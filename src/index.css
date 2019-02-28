@@ -24,37 +24,31 @@ body {
   margin: 0 auto;
 }
 
-/*
-@media screen and (min-width: 1060px) {
-  .container {
-    width: 1500px;
-    margin: 0 auto;
-  }  
-}
-*/
 
-@media (min-width: 1200px) {
+/* Desktops Screen = 1281px to higher resolution desktops */
+@media (min-width: 1281px) {
   .container {
-    max-width: 1480px;
+    max-width: 1280px;
     margin: 0 auto;
   }
 }
 
-/*
-@media(min-width: 1060px) {
+/* Tablets, Ipads (portrait) Screen = B/w 768px to 1024px */
+@media (min-width: 768px) and (max-width: 1024px) {
   .container {
-    width: 1500px;
+    max-width: 768px;
     margin: 0 auto;
   }
 }
-*/
 
-/*
-.imgResponsive {
-  width: 100%;
-  height: auto;
+/* Low Resolution Tablets, Mobiles (Landscape) #Screen = B/w 481px to 767px */
+@media (min-width: 481px) and (max-width: 767px) { 
 }
-*/
+
+/* Most of the Smartphones Mobiles (Portrait) Screen = B/w 320px to 479px */
+@media (min-width: 320px) and (max-width: 480px) {
+}
+
 
 /* Typography */
 

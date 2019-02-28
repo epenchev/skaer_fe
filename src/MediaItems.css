@@ -1,5 +1,5 @@
 .imgResponsive {
-  width: 150px;
+  width: 175px;
   height: auto;
 }
 
@@ -33,13 +33,13 @@
   }
 }
 
-@media(min-width: 992px) {
+@media(min-width: 1280px) {
   .MediaItems {
     justify-content: flex-start; 
     align-content: center;
   }
   .MediaItems a {
-    width: 14%;
+    width: 16%;
   }
 }
 
