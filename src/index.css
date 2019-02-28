@@ -33,20 +33,28 @@ body {
   }
 }
 
-/* Tablets, Ipads (portrait) Screen = B/w 768px to 1024px */
+/* Tablets, Ipads (portrait) Screen - 768px to 1024px */
 @media (min-width: 768px) and (max-width: 1024px) {
   .container {
-    max-width: 768px;
+    max-width: 760px;
     margin: 0 auto;
   }
 }
 
-/* Low Resolution Tablets, Mobiles (Landscape) #Screen = B/w 481px to 767px */
+/* Low Resolution Tablets, Mobiles (Landscape) Screen - 481px to 767px */
 @media (min-width: 481px) and (max-width: 767px) { 
+  .container {
+    max-width: 480px;
+    margin: 0 auto;
+  }
 }
 
 /* Most of the Smartphones Mobiles (Portrait) Screen = B/w 320px to 479px */
 @media (min-width: 320px) and (max-width: 480px) {
+  .container {
+    max-width: 320px;
+    margin: 0 auto;
+  }
 }
 
 
