@@ -42,7 +42,9 @@ export class MediaItems extends React.Component {
           {this.state.movies.map((movie, index) => {
             return (
               <a href={`/items/id`} className="itemLink">
-                <img src={this.state.movies[index].poster_path === null ? 'http://via.placeholder.com/300x450' : `https://image.tmdb.org/t/p/w300/${this.state.movies[index].poster_path}`} alt={`${this.state.movies.title} poster`} className="imgResponsive" />
+                <img src={this.state.movies[index].poster_path === null ? 
+                  'http://via.placeholder.com/300x450' : `https://image.tmdb.org/t/p/w300/${this.state.movies[index].poster_path}`} 
+                  alt={`${this.state.movies.title} poster`} className="imgResponsive" />
               </a>
             )
           })}
