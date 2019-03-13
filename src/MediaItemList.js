@@ -1,8 +1,8 @@
 import React from 'react';
 import {MediaItem} from './MediaItem';
-import './MediaItems.css';
+import './MediaItemList.css';
 
-export class MediaItems extends React.Component {
+export class MediaItemList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -39,10 +39,10 @@ export class MediaItems extends React.Component {
   render() {
     return (
       <section>
-        <div className="MediaItems">
+        <div className="MediaItemList">
           {this.state.movies.map((movie, index) => {
             return (
-              <MediaItem poster_path="{this.state.movies[index].poster_path}" />  
+              <MediaItem title={this.state.movies[index].title} poster={this.state.movies[index].poster_path} />  
             )
           })}
         </div>
