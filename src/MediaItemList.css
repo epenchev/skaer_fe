@@ -1,6 +1,7 @@
 .imgResponsive {
-  width: 175px;
-  height: auto;
+  width: auto;
+  height: 225px;
+  /*vertical-align: text-bottom;*/
 }
 
 .MediaItemList {
@@ -56,6 +57,24 @@
 .itemLink {
   position: relative;
 }
+
+
+.itemLink p {
+  /*display: block;*/
+  font-size: 14px;
+  /*color: rgba(255,255,255,0.4);*/
+  /*white-space: nowrap;*/
+  /*overflow: hidden;*/
+  /*text-overflow: ellipsis;*/
+  color:     blue;
+  /*width: 100px;*/
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+
+}
+
 
 .ItemInfo {
   display: flex;
