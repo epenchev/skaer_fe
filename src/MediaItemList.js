@@ -42,7 +42,7 @@ export class MediaItemList extends React.Component {
         <div className="MediaItemList">
           {this.state.movies.map((movie, index) => {
             return (
-              <MediaItem title={this.state.movies[index].title} poster={this.state.movies[index].poster_path} />  
+              <MediaItem title={this.state.movies[index].title} poster={this.state.movies[index].poster_path}/>
             )
           })}
         </div>
@@ -50,4 +50,3 @@ export class MediaItemList extends React.Component {
     );
   }
 }
-
