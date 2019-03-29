@@ -1,5 +1,6 @@
 import React from 'react';
 import {MediaItem} from './MediaItem';
+import {TmDb} from './TmDb';
 import './MediaItemList.css';
 
 export class MediaItemList extends React.Component {
@@ -17,9 +18,12 @@ export class MediaItemList extends React.Component {
     let today = todayDate.getFullYear() + '-' + (todayDate.getMonth() + 1) + '-' + todayDate.getDate();
     let oneMonthAgo = (todayDate.getMonth() === 0 ? todayDate.getFullYear() - 1 : todayDate.getFullYear()) + '-' + (todayDate.getMonth() === 0 ? todayDate.getMonth() + 12 : todayDate.getMonth()) + '-' + todayDate.getDate();
 
-    fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${key}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&primary_release_date.gte=${oneMonthAgo}&primary_release_date.lte=${today}`)
+    //fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${key}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&primary_release_date.gte=${oneMonthAgo}&primary_release_date.lte=${today}`)
+    {/*
+    fetch(`https://api.themoviedb.org/3/discover/movie?api_key=f3e9f7d1677c7aa63c9ab526381eeceb&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1)
       .then(response => {
         console.log('Status: ' + response.status);
+        console.log('response text: ' + response.statusText);
 
         response.json().then(data => {
           const movies = data.results;
@@ -27,9 +31,15 @@ export class MediaItemList extends React.Component {
         });
 
       })
+    .then(body => {})
       .catch(err => {
         console.log('Fetch Error :-S', err);
       })
+      */}
+    let tmdbApi = new TmDb();
+    let movies = tmdbApi.getMovieItems();
+    console.log(movies);
+    this.setState({ movies });
   }
 
   componentWillMount() {

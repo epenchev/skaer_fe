@@ -19,16 +19,18 @@ class App extends Component {
         <Toolbar />
         <div className="container">
           <MediaItemList />
-      </div>
+        </div>
+      {/*
         <MediaElement
-		   id="player1"
-		   mediaType="audio"
-		   preload="none"
-		   width="1024"
-		   sources={JSON.stringify(sources)}
-		   options={JSON.stringify(config)}
-		   tracks={JSON.stringify(tracks)}
-		/>
+		      id="player1"
+		      mediaType="audio"
+		      preload="none"
+		      width="1024"
+		      sources={JSON.stringify(sources)}
+		      options={JSON.stringify(config)}
+		      tracks={JSON.stringify(tracks)}
+        />
+      */}
       </div>
     );
   }
