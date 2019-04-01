@@ -1,6 +1,5 @@
 import React from 'react';
 import {MediaItem} from './MediaItem';
-import {TmDb} from './TmDb';
 import './MediaItemList.css';
 
 export class MediaItemList extends React.Component {
@@ -12,15 +11,13 @@ export class MediaItemList extends React.Component {
   }
 
   loadData() {
-    const key = 'f3e9f7d1677c7aa63c9ab526381eeceb';
-    // Get a date range between today and one month ago to dynamically update the link for the request
-    let todayDate = new Date();
-    let today = todayDate.getFullYear() + '-' + (todayDate.getMonth() + 1) + '-' + todayDate.getDate();
-    let oneMonthAgo = (todayDate.getMonth() === 0 ? todayDate.getFullYear() - 1 : todayDate.getFullYear()) + '-' + (todayDate.getMonth() === 0 ? todayDate.getMonth() + 12 : todayDate.getMonth()) + '-' + todayDate.getDate();
+    const apiKey = 'f3e9f7d1677c7aa63c9ab526381eeceb';
+    const baseUrl = 'https://api.themoviedb.org/3';
+    const language = 'en-US';
+    const filter = '&sort_by=popularity.desc&include_adult=false&include_video=false&page=1';
+    const apiUrl = `${baseUrl}/discover/movie?api_key=${apiKey}&language=${language}${filter}`;
 
-    //fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${key}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&primary_release_date.gte=${oneMonthAgo}&primary_release_date.lte=${today}`)
-    {/*
-    fetch(`https://api.themoviedb.org/3/discover/movie?api_key=f3e9f7d1677c7aa63c9ab526381eeceb&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1)
+    fetch(apiUrl)
       .then(response => {
         console.log('Status: ' + response.status);
         console.log('response text: ' + response.statusText);
@@ -29,17 +26,11 @@ export class MediaItemList extends React.Component {
           const movies = data.results;
           this.setState({ movies });
         });
-
       })
-    .then(body => {})
-      .catch(err => {
-        console.log('Fetch Error :-S', err);
-      })
-      */}
-    let tmdbApi = new TmDb();
-    let movies = tmdbApi.getMovieItems();
-    console.log(movies);
-    this.setState({ movies });
+      .then(body => {})
+        .catch(err => {
+          console.log('Fetch Error: ', err);
+        }) 
   }
 
   componentWillMount() {

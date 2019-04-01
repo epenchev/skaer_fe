@@ -1,5 +1,5 @@
 .imgResponsive {
-  width: auto;
+  width: 145px;
   height: 200px;
   /*vertical-align: text-bottom;*/
 }
@@ -53,51 +53,36 @@
   }
 }
 
+a:hover, a:visited, a:link, a:active {
+  text-decoration: none;
+
+}
+
+h3 {
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  white-space: nowrap;
+
+}
 
 .itemLink {
   position: relative;
 }
 
 .itemTitle {
-  text-decoration: none;
-  font-size: 14px;
-  /*color: #2B2E31;*/
-  /*color: rgba(255,255,255,0.88);*/
-  display: block;
-  white-space: nowrap;
+  /* text-decoration: none;
+  font-family: 'Roboto', 'Noto', sans-serif;
+  font-size: 14px; */
+  /*font: 12px sans-serif;*/
+  /*display: block;*/
+  /*white-space: nowrap;*/
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 150px;
-  /*text-align: left;*/
   margin: 5px;
-  /*
-  display: block;
-  font-size: 14px;
-  text-overflow: ellipsis;
-  color:     blue;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  text-align: center;
-  */
 }
-
-/*
-.itemLink p {
-  /*display: block;*/
-  /*font-size: 14px;*/
-  /*color: rgba(255,255,255,0.4);*/
-  /*white-space: nowrap;*/
-  /*overflow: hidden;*/
-  /*text-overflow: ellipsis;*/
-  /*color:     blue;
-  /*width: 100px;*/
- /* white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  text-align: center;
-
-}*/
 
 
 .ItemInfo {
