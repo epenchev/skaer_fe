@@ -1,7 +1,47 @@
 .imgResponsive {
-  width: 145px;
-  height: 200px;
+  /*position: relative;*/
+  /*display: inline-block;*/
+  width: 150px;
+  /*height: 200px;*/
+  height: auto;
+  /*vertical-align: top;*/
   /*vertical-align: text-bottom;*/
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+
+/*
+.imgResponsive:hover {
+  /*webkit-filter: grayscale(50%) blur(1px); /* Chrome, Safari, Opera */
+  /*filter: grayscale(50%) blur(1px);
+  -webkit-filter: brightness(0.50);
+}*/
+
+.playIcon {
+	color: #fff;
+	text-align: center;
+	position: absolute;
+	top: 40%;
+	/*left: 50%;*/
+  /*
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	border-radius: 250%;
+	padding: 2px;
+	border: 1px solid #fff;
+	line-height: 1;
+	opacity: 1;
+  */
+  font-size: 32px;
+}
+
+
+.imgResponsive:hover .playIcon {
+	opacity: 1;
 }
 
 .MediaItemList {
