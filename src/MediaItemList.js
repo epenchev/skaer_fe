@@ -2,6 +2,7 @@ import React from 'react';
 import {MediaItem} from './MediaItem';
 import './MediaItemList.css';
 
+
 export class MediaItemList extends React.Component {
   constructor(props) {
     super(props);
@@ -71,7 +72,7 @@ export class MediaItemList extends React.Component {
         <div className="MediaItemList">
           {this.state.movies.map((movie, index) => {
             return (
-              <MediaItem title={this.state.movies[index].title} poster={this.state.movies[index].poster_path}/>
+              <MediaItem key={index} title={this.state.movies[index].title} poster={this.state.movies[index].poster_path}/>
             )
           })}
         </div>
@@ -85,7 +86,7 @@ export class MediaItemList extends React.Component {
         <div className="MediaItemList">
           {this.state.movies.map((movie, index) => {
             return (
-              <MediaItem title={this.state.movies[index].title} poster={this.state.movies[index].url}/>
+              <MediaItem key={index} title={this.state.movies[index].title} poster={this.state.movies[index].url}/>
             )
           })}
         </div>

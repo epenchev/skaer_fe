@@ -1,0 +1,54 @@
+/* change the background color */
+/*
+.navbar-custom {
+    color: rgb(40,40,40,40);
+    background-color: rgb(40,40,40);
+    border-color: #333333;
+    background-image: none;
+}
+*/
+
+/* navbar dropdown menu */
+/*.navbar-custom-dropdown-menu {*/
+    /*background-color: rgb(40,40,40);
+}
+*/
+
+/*.navbar-custom-dropdown-menu { */
+    /*color: rgba(255,255,255,0.88);*/
+    /* font-family: "Roboto", "Arial", sans-serif;*/
+    /*
+    font-family: 'Roboto', 'Noto', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 25px;
+}*/
+
+/*
+.navbar-custom-dropdown-menu > a:hover,
+.navbar-custom-dropdown-menu > a:focus {
+    background-color: #555555;
+    background-image: none;
+}
+*/
+
+
+/* change the brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+    color: rgba(255,255,255,.8);
+    padding: 0.8rem 1rem;
+}
+/* change the link color and add padding for height */
+.navbar-custom .navbar-nav .nav-link {
+    color: rgba(255,255,255,.5);
+    padding: 1rem 1rem;
+}
+/* change the color of active or hovered links */
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+    color: #ffffff;
+    background-color: #ee4400; /* add background-color to active links */
+}
+
+

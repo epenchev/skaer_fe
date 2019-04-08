@@ -1,4 +1,5 @@
 import React from 'react';
+import './Toolbar.css';
 import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
 
 
@@ -15,15 +16,15 @@ export class Toolbar extends  React.Component {
   }
 
   createSelector(selString) {
-    return (<NavDropdown.Item onSelect={(e) => this.handleSelect(selString, e)}>{selString}</NavDropdown.Item>);
+    return (<NavDropdown.Item className="nav-link " onSelect={(e) => this.handleSelect(selString, e)}>{selString}</NavDropdown.Item>);
   }
 
   render() {
     return (
-      <Navbar bg="dark" expand="lg" fixed="top">
+      <Navbar expand="lg" fixed="top" className="navbar-custom">
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mr-auto">
+          <Nav className="navbar-nav mr-auto">
             <NavDropdown title={this.state.dropTitle} id="basic-nav-dropdown">
               {this.createSelector('Create Collection')}
               <NavDropdown.Divider />
