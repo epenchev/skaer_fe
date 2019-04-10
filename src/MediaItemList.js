@@ -43,7 +43,7 @@ export class MediaItemList extends React.Component {
     const apiUrl_old = `${baseUrl}/discover/movie?api_key=${apiKey}&language=${language}${filter}`;
     console.log(apiUrl_old);
 
-    const apiUrl = `http://localhost:8080/provider_entries?provid=1`
+    const apiUrl = `http://localhost:8080/provider_entries?provid=2`
     console.log(apiUrl)
     fetch(apiUrl)
       .then(response => {

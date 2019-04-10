@@ -53,7 +53,7 @@ export class Toolbar extends  React.Component {
       <Navbar expand="lg" fixed="top" className="navbar navbar-expand-md navbar-dark navbar-theme">
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mr-auto">
+          <Nav variant="pills" className="mr-auto">
             <NavDropdown className="navbar-dropdown" title={<div><FontAwesomeIcon icon={this.state.dropIcon} className="dropdown-item-icon"/> <span>{this.state.dropTitle}</span></div> } id="basic-nav-dropdown">
               {this.createSelector('Create Collection', this.faIcons.PlusIcon)}
               <NavDropdown.Divider />
@@ -66,7 +66,7 @@ export class Toolbar extends  React.Component {
             </NavDropdown>
           </Nav>
           <Form inline>
-            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+            <FormControl type="input" placeholder="Search" className="mr-sm-2"/>
             <Button variant="outline-success">Search</Button>
           </Form>
         </Navbar.Collapse>

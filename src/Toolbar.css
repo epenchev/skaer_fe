@@ -39,6 +39,11 @@
   border-color: #333333;
 }
 
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+	background-color: #555555;
+}
+
+
 .dropdown-item-label {
   position: relative;
   left: 20px;
