@@ -66,27 +66,13 @@ export class MediaItemList extends React.Component {
     this.loadDataFromSkaer();
   }
 
-  render_old() {
-    return (
-      <section>
-        <div className="MediaItemList">
-          {this.state.movies.map((movie, index) => {
-            return (
-              <MediaItem key={index} title={this.state.movies[index].title} poster={this.state.movies[index].poster_path}/>
-            )
-          })}
-        </div>
-      </section>
-    );
-  }
-
   render() {
     return (
       <section>
         <div className="MediaItemList">
           {this.state.movies.map((movie, index) => {
             return (
-              <MediaItem key={index} title={this.state.movies[index].title} poster={this.state.movies[index].url}/>
+              <MediaItem key={index} title={movie.title} poster={movie.url}/>
             )
           })}
         </div>
