@@ -11,58 +11,57 @@ import { faQuestionCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
-export class Toolbar extends  React.Component {
+class DropdownItem extends React.Component {
   constructor(props, context) {
     super(props);
-    this.state = {
-      dropTitle: 'Collections',
-      dropIcon: faList
-    };
-    this.handleSelect = this.handleSelect.bind(this);
-    this.createSelector = this.createSelector.bind(this);
-    this.faIcons = {
-      PlusIcon   : faFolderPlus,
-      FolderIcon : faFolder,
-      ListIcon   : faList,
-      GlobeIcon  : faGlobe,
-      CogIcon    : faCog,
-      QMarkIcon  : faQuestionCircle
-    };
   }
 
-  handleSelect(selString, selIcon, e) {
-    this.setState({
-      dropTitle: selString,
-      dropIcon : selIcon
-    });
-  }
-
-  createSelector(selString, faIcon) {
+  render() {
+    const faIcon = this.props.faIcon;
+    const title = this.props.title;
+    const eventKey = this.props.eventKey;
     return (
-      <NavDropdown.Item onSelect={(e) => this.handleSelect(selString, faIcon, e)}>
+      <NavDropdown.Item onSelect={(e) => this.props.onSelect(eventKey, title, faIcon)}>
         <div>
           <FontAwesomeIcon icon={faIcon} className="dropdown-item-icon"/>
-          <span className="dropdown-item-label">{selString}</span>
+          <span className="dropdown-item-label">{title}</span>
         </div>
       </NavDropdown.Item>
     );
   }
+}
+
+export class Toolbar extends  React.Component {
+  constructor(props, context) {
+    super(props);
+    this.state = { selectTitle: 'Collections', faIcon: faFolder, selectKey: '2' };
+    this.handleSelect = this.handleSelect.bind(this);
+  }
+
+  handleSelect(eventKey, selTitle, selfaIcon) {
+    this.setState({ selectTitle: selTitle, faIcon: selfaIcon, selectKey: eventKey });
+    this.props.doHandleSelect(eventKey);
+  }
 
   render() {
+    const selTitle = this.state.selectTitle;
+    const selIcon = this.state.faIcon;
     return (
       <Navbar expand="lg" fixed="top" className="navbar navbar-expand-md navbar-dark navbar-theme">
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav variant="pills" className="mr-auto">
-            <NavDropdown className="navbar-dropdown" title={<div><FontAwesomeIcon icon={this.state.dropIcon} className="dropdown-item-icon"/> <span>{this.state.dropTitle}</span></div> } id="basic-nav-dropdown">
-              {this.createSelector('Create Collection', this.faIcons.PlusIcon)}
+            <NavDropdown className="navbar-dropdown"
+            title={<div><FontAwesomeIcon icon={selIcon} className="dropdown-item-icon"/>
+            <span>{selTitle}</span></div> } id="basic-nav-dropdown">
+              <DropdownItem faIcon={faFolderPlus} title='Create Collection' eventKey='1' onSelect={this.handleSelect} />
               <NavDropdown.Divider />
-              {this.createSelector('Collections', this.faIcons.FolderIcon)}
-              {this.createSelector('Playlists', this.faIcons.ListIcon)}
-              {this.createSelector('Online Content', this.faIcons.GlobeIcon)}
+              <DropdownItem faIcon={faFolder} title='Collections' eventKey='2' onSelect={this.handleSelect} />
+              <DropdownItem faIcon={faList} title='Playlists' eventKey='3' onSelect={this.handleSelect} />
+              <DropdownItem faIcon={faGlobe} title='Online Content' eventKey='4' onSelect={this.handleSelect} />
               <NavDropdown.Divider />
-              {this.createSelector('Settings', this.faIcons.CogIcon)}
-              {this.createSelector('Help', this.faIcons.QMarkIcon)}
+              <DropdownItem faIcon={faCog} title='Settings' eventKey='5' onSelect={this.handleSelect} />
+              <DropdownItem faIcon={faQuestionCircle} title='Help' eventKey='6' onSelect={this.handleSelect} />
             </NavDropdown>
           </Nav>
           <Form inline>

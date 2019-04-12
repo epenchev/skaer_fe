@@ -32,20 +32,25 @@ export class ProvidersList extends React.Component {
   }
 
   render() {
-    return (
-      <section>
-        <div className="MediaItemList">
-          {this.state.providers.map((provider, index) => {
-            return (
-              <a href={`/providers/id`} >
-                <img src={provider.cover_image} alt={provider.name} />
-                <h3>{provider.name}</h3>
-              </a>
-            )
-          })}
-        </div>
-      </section>
-    );
+    console.log(this.props.show);
+    if (this.props.show) {
+      return (
+        <section>
+          <div className="MediaItemList">
+            {this.state.providers.map((provider, index) => {
+              return (
+                <a href={`/providers/id`} >
+                  <img src={provider.cover_image} alt={provider.name} />
+                  <h3>{provider.name}</h3>
+                </a>
+              )
+            })}
+          </div>
+        </section>
+      );
+    }
+    else {
+      return(null);
+    }
   }
-
 }
