@@ -1,12 +1,19 @@
 import React from 'react';
 import './MediaItemList.css';
+import {ProviderItem} from './ProviderItem.js';
+import {MediaItemList} from './MediaItemList.js';
+
 
 export class ProvidersList extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      providers: []
-    };
+    this.handleItemSelect = this.handleItemSelect.bind(this);
+    this.state = { providers: [], showMedia: false };
+  }
+
+  handleItemSelect(provId) {
+    console.log('Hi there');
+    this.setState({ showMedia: true });
   }
 
   loadData() {
@@ -27,30 +34,36 @@ export class ProvidersList extends React.Component {
         }) 
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.loadData();
   }
 
-  render() {
-    console.log(this.props.show);
+  componentWillReceiveProps() {
+    this.setState({ showMedia: false });
+  }
+
+  render() {   
     if (this.props.show) {
+      if (this.state.showMedia) {
+        return(<MediaItemList />);
+      }
       return (
         <section>
           <div className="MediaItemList">
             {this.state.providers.map((provider, index) => {
               return (
-                <a href={`/providers/id`} >
-                  <img src={provider.cover_image} alt={provider.name} />
-                  <h3>{provider.name}</h3>
-                </a>
+                <ProviderItem key={provider.id} name={provider.name} 
+                  image={provider.cover_image} 
+                  type={provider.category}
+                  selectHandler={this.handleItemSelect}
+                />
               )
             })}
           </div>
         </section>
       );
-    }
-    else {
-      return(null);
+    } else {
+        return (null);
     }
   }
 }

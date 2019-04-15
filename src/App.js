@@ -28,28 +28,11 @@ class App extends Component {
   }
 
   render() {
-    const sources = [{src: 'http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4', type: 'video/mp4'}];
-		const config = {};
-    const tracks = {};
-
     return (
       <div className="App">
         <Toolbar doHandleSelect={this.handleSelect}/>
         <div className="container">
           <ProvidersList show={this.state.renderProviders} />
-          <div className="fixed">
-            <MediaElement
-		          id="player1"
-		          mediaType="audio"
-		          preload="none"
-              width="640"
-              height="360"
-              controls
-              sources={JSON.stringify(sources)}
-		          options={JSON.stringify(config)}
-		          tracks={JSON.stringify(tracks)}
-            />
-          </div>
         </div>
       </div>
     );
