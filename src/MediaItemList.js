@@ -1,11 +1,13 @@
 import React from 'react';
 import {MediaItem} from './MediaItem';
+import {ApiAgent} from './ApiAgent';
 import './MediaItemList.css';
 
 
 export class MediaItemList extends React.Component {
   constructor(props) {
     super(props);
+    this.onSuccess = this.onSuccess.bind(this);
     this.state = {
       movies: []
     }
@@ -43,7 +45,7 @@ export class MediaItemList extends React.Component {
     const apiUrl_old = `${baseUrl}/discover/movie?api_key=${apiKey}&language=${language}${filter}`;
     console.log(apiUrl_old);
 
-    const apiUrl = `http://localhost:8080/provider_entries?provid=1`
+    const apiUrl = `http://localhost:8080/provider_entries?provid=2`
     console.log(apiUrl)
     fetch(apiUrl)
       .then(response => {
@@ -61,9 +63,18 @@ export class MediaItemList extends React.Component {
         }) 
   }
 
+  onSuccess(data) {
+    const movies = data;
+    this.setState({ movies });
+  }
+
   componentWillMount() {
     //this.loadData();
-    this.loadDataFromSkaer();
+    //this.loadDataFromSkaer();
+    let agent = new ApiAgent();
+    agent.fetchProviderEntries('2', (data) => {
+      this.setState({ movies: data });
+    });
   }
 
   render() {
