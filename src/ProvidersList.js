@@ -37,12 +37,19 @@ export class ProvidersList extends React.Component {
   componentDidMount() {
     this.loadData();
   }
-
-  componentWillReceiveProps() {
-    this.setState({ showMedia: false });
+  
+  componentDidUpdate(prevProps) {
+    /*
+    if (!prevProps.show) {
+      this.setState({ showMedia: false });
+      }*/
   }
 
-  render() {   
+  //componentWillReceiveProps() {
+    //this.setState({ showMedia: false });
+  //}
+
+  render() {
     if (this.props.show) {
       if (this.state.showMedia) {
         return(<MediaItemList />);

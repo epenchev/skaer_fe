@@ -1,6 +1,6 @@
 import React from 'react';
 import {MediaItem} from './MediaItem';
-import {ApiAgent} from './ApiAgent';
+import {fetchProviderEntries} from './ApiCalls';
 import './MediaItemList.css';
 
 
@@ -71,8 +71,7 @@ export class MediaItemList extends React.Component {
   componentWillMount() {
     //this.loadData();
     //this.loadDataFromSkaer();
-    let agent = new ApiAgent();
-    agent.fetchProviderEntries('2', (data) => {
+    fetchProviderEntries('2', (data) => {
       this.setState({ movies: data });
     });
   }

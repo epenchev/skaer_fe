@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
 import {Toolbar} from './Toolbar';
-import {MediaItemList} from './MediaItemList';
-import {ProvidersList} from './ProvidersList';
-import MediaElement from './MediaElement';
+import {MediaList} from './MediaList';
+import {fetchProviders} from './ApiCalls';
+import {fetchProviderEntries} from './ApiCalls';
+import {renderProvider} from './ContentProvider';
+import {MediaEntry} from './MediaEntry';
 import './App.css';
-import './MediaElement.css';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faIgloo } from '@fortawesome/free-solid-svg-icons'
 
 library.add(faIgloo)
 
+function apiFetchProvidersEntries(onSuccess) {
+  fetchProviderEntries('2', onSuccess);
+}
 
 class App extends Component {
   constructor(props) {
@@ -32,7 +36,7 @@ class App extends Component {
       <div className="App">
         <Toolbar doHandleSelect={this.handleSelect}/>
         <div className="container">
-          <ProvidersList show={this.state.renderProviders} />
+          <MediaList loadData={apiFetchProvidersEntries} itemRenderer={MediaEntry} />
         </div>
       </div>
     );
