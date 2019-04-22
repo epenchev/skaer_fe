@@ -14,39 +14,30 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 library.add(faIgloo)
 
 function apiFetchProvidersEntries(onSuccess) {
-  fetchProviderEntries('1', onSuccess);
+  fetchProviderEntries('2', onSuccess);
 }
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { renderProviders: false };
-    this.handleSelect = this.onDropDownSelect.bind(this);
   }
 
-  onDropDownSelect(eventKey) {
-    if (eventKey === '4') {
-        this.setState({ renderProviders: true });
-    } else {
-        this.setState({ renderProviders: false });
-    }
-  }
-
-  render() {
+   render() {
     return (
-      <BrowserRouter>
       <div className="App">
-        <Toolbar doHandleSelect={this.handleSelect}/>
+        <Toolbar />
         <div className="container">
+          <BrowserRouter>
             <Switch>
               <Route
-                path={'/providers'}
-                render={(props) => <MediaList {...props} loadData={apiFetchProvidersEntries} itemRenderer={MediaEntry} />}
+                path="/providers"
+                render={(props) => <MediaList {...props} 
+                  loadData={apiFetchProvidersEntries} itemRenderer={MediaEntry} />}
               />
             </Switch>
+          </BrowserRouter>
         </div>
       </div>
-      </BrowserRouter>
     );
   }
 }

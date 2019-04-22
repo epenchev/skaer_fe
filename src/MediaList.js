@@ -14,13 +14,10 @@ export class MediaList extends React.Component {
   }
 
   render() {
-    // Just for debug
-    console.log(this.props);
     return (
       <section>
         <div className="MediaList">
           { this.state.itemsData.map((d, index) => {
-              console.log(d);
               let newProps = Object.assign({key: index}, d);
               return React.createElement(this.props.itemRenderer, newProps);
           }) }
