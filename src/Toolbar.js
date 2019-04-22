@@ -21,7 +21,7 @@ class DropdownItem extends React.Component {
     const title = this.props.title;
     const eventKey = this.props.eventKey;
     return (
-      <NavDropdown.Item onSelect={(e) => this.props.onSelect(eventKey, title, faIcon)}>
+      <NavDropdown.Item href='/providers' onSelect={(e) => this.props.onSelect(eventKey, title, faIcon)}>
         <div>
           <FontAwesomeIcon icon={faIcon} className="dropdown-item-icon"/>
           <span className="dropdown-item-label">{title}</span>

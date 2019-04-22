@@ -14,6 +14,8 @@ export class MediaList extends React.Component {
   }
 
   render() {
+    // Just for debug
+    console.log(this.props);
     return (
       <section>
         <div className="MediaList">

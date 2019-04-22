@@ -9,11 +9,12 @@ import './App.css';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faIgloo } from '@fortawesome/free-solid-svg-icons'
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 library.add(faIgloo)
 
 function apiFetchProvidersEntries(onSuccess) {
-  fetchProviderEntries('2', onSuccess);
+  fetchProviderEntries('1', onSuccess);
 }
 
 class App extends Component {
@@ -33,12 +34,19 @@ class App extends Component {
 
   render() {
     return (
+      <BrowserRouter>
       <div className="App">
         <Toolbar doHandleSelect={this.handleSelect}/>
         <div className="container">
-          <MediaList loadData={apiFetchProvidersEntries} itemRenderer={MediaEntry} />
+            <Switch>
+              <Route
+                path={'/providers'}
+                render={(props) => <MediaList {...props} loadData={apiFetchProvidersEntries} itemRenderer={MediaEntry} />}
+              />
+            </Switch>
         </div>
       </div>
+      </BrowserRouter>
     );
   }
 }
