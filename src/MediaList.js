@@ -1,5 +1,5 @@
-import React from 'react';
-import './MediaList.css';
+import React from "react";
+import "./MediaList.css";
 
 export class MediaList extends React.Component {
   constructor(props) {
