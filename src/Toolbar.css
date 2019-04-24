@@ -56,6 +56,15 @@
   margin-right: 8px;
 }
 
+.dropdown-main-item-icon {
+  color: rgba(255,255,255,.4);
+  font-size: 22px;
+  transform: scale(1.1,1.1);
+  /*margin-left: -2px;
+  margin-right: 10px;*/
+}
+
+
 /* Remove arrow from dropdown */
 .dropdown-toggle::after {
     display: none;

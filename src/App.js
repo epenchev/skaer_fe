@@ -7,7 +7,7 @@ import {MediaEntry} from "./MediaEntry";
 import {ProviderEntry} from "./ProviderEntry";
 import "./App.css";
 
-import { library } from "@fortawesome/fontawesome-svg-core"
+import { library, config } from "@fortawesome/fontawesome-svg-core"
 import { faIgloo } from "@fortawesome/free-solid-svg-icons"
 
 library.add(faIgloo)
@@ -15,9 +15,6 @@ library.add(faIgloo)
 function apiFetchProvidersEntries(onSuccess) {
   fetchProviderEntries("2", onSuccess);
 }
-
-const Mlist = React.createElement(MediaList, {loadData: fetchProviders, itemRenderer: ProviderEntry});
-
 
 class App extends Component {
   constructor(props) {
@@ -27,15 +24,30 @@ class App extends Component {
   }
 
   toolbarHandleSelect(eventKey) {
-    console.log("selected " + eventKey);
+    this.setState({ toolbrarSelection: eventKey });
+  }
+
+  createMediaList() {
+    let list;
+    const selection = this.state.toolbrarSelection;
+    if (selection === "2") {
+        // User collections
+    } else if (selection == "3") {
+        // User playlists
+    } else if (selection === "4") {
+        // Content providers (online media)
+        list = <MediaList loadData={fetchProviders} itemRenderer={ProviderEntry} />;
+    }
+    return list;
   }
 
   render() {
+    let list = this.createMediaList();
     return (
       <div className="App">
         <Toolbar onSelection={this.toolbarHandleSelect}/>
         <div className="container">
-        {Mlist}
+        {list}
         </div>
       </div>
     );

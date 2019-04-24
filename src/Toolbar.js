@@ -1,12 +1,14 @@
-import React from 'react';
-import './Toolbar.css';
-import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
+import React from "react";
+import "./Toolbar.css";
+import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from "react-bootstrap";
 import { faFolder } from "@fortawesome/free-solid-svg-icons";
 import { faFolderPlus } from "@fortawesome/free-solid-svg-icons";
 import { faList } from "@fortawesome/free-solid-svg-icons";
 import { faGlobe } from "@fortawesome/free-solid-svg-icons";
 import { faCog } from "@fortawesome/free-solid-svg-icons";
 import { faQuestionCircle } from "@fortawesome/free-solid-svg-icons";
+import { faThLarge } from "@fortawesome/free-solid-svg-icons";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
@@ -60,8 +62,8 @@ export class Toolbar extends  React.Component {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav variant="pills" activeKey="0" className="mr-auto" onSelect={k => this.handleSelect(k)}>
             <NavDropdown className="navbar-dropdown"
-            title={<div><FontAwesomeIcon icon={selIcon} className="dropdown-item-icon"/>
-            <span>{selTitle}</span></div> } id="basic-nav-dropdown">
+              title={<div><FontAwesomeIcon icon={faThLarge} className="dropdown-main-item-icon"/></div> } 
+            id="basic-nav-dropdown">
               <DropdownItem eventKey="1"/>
               <NavDropdown.Divider />
               <DropdownItem eventKey="2" />
