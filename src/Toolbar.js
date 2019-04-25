@@ -66,8 +66,8 @@ export class Toolbar extends  React.Component {
             </NavDropdown>
           </Nav>
           <Form inline>
-            <FormControl type="input" placeholder="Search" className="mr-sm-2"/>
-            <Button variant="outline-success">Search</Button>
+            <FormControl type="input" placeholder="Search" className="mr-sm-2 sk-searchbox"/>
+            {/*<Button variant="outline-success">Search</Button>*/}
           </Form>
         </Navbar.Collapse>
       </Navbar>

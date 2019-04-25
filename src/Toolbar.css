@@ -68,7 +68,56 @@
 
 /* Remove arrow from dropdown */
 .dropdown-toggle::after {
-    display: none;
+  display: none;
 }
+
+.sk-searchbox {
+  /*
+  float: left;
+  border-radius: 2px 0 0 2px;
+  padding-left: 10px;
+  width: 564px;
+  height: 30px;
+  line-height: 35px;
+  background: #fff;
+  border-right: none;
+  border: 1px solid rgba(255,255,255,0.2);
+  font-family: "Roboto", "Noto", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 24px;
+  margin-left: 4px;
+  max-width: 100%;
+  outline-color: rgba(255, 255, 255, 0.88);
+  outline-style: none;
+  outline-width: 0px;
+  border-right:none;
+  color: rgba(255,255,255,0.88);
+  background-color: rgba(10,15,10,1.00);
+  */
+  outline-color: rgba(255, 255, 255, 0.88);
+  outline-style: none;
+  outline-width: 0px;
+ 
+  background: #fff;
+  outline-color: rgba(255, 255, 255, 0.88);
+  outline-style: none;
+  outline-width: 0px;
+  border: 1px solid rgba(255,255,255,0.2);
+
+  color: rgba(255,255,255,0.88);
+  background-color: rgba(10,15,10,1.00);
+
+}
+
+.sk-searchbox:focus {
+  border: 1px solid #355E9B;
+  color: rgba(255,255,255,0.88);
+  background-color: rgba(10,15,10,1.00);
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
 
 
