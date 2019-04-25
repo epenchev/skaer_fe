@@ -1,29 +1,29 @@
-import React from 'react';
+import React from "react";
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
+import {EntryList} from "./EntryList";
+import {fetchProviderEntries} from "../ApiCalls";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import './MediaEntry.css';
+import "./MediaEntry.css";
 
-const initialStyle = {
-};
 
-export class MediaEntry extends React.Component {
+class MediaEntry extends React.Component {
   constructor(props) {
     super(props);
     this.state = { iconOpacity: 0 };
-    this.state.styles = initialStyle;
+    this.state.styles = {};
   }
 
   mouseOut() {
-    this.setState({iconOpacity: 0});
-    this.setState({styles: initialStyle})
+    this.setState({ iconOpacity: 0 });
+    this.setState({ styles: {} });
   }
 
   mouseOver() {
     const brightnessStyle = {
       WebkitFilter: 'brightness(0.25)'
     };
-    this.setState({iconOpacity: 1});
-    this.setState({styles: brightnessStyle});
+    this.setState({ iconOpacity: 1 });
+    this.setState({ styles: brightnessStyle });
   }
 
   render() {
@@ -39,4 +39,24 @@ export class MediaEntry extends React.Component {
       </a>
         );
       }
+}
+
+export class MediaList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { itemsData: [] };
+  }
+
+  componentDidMount() {
+    fetchProviderEntries(this.props.match.params.id, (data) => {
+      this.setState({ itemsData: data });
+    });
+  }
+
+  render() {
+    return(
+      <EntryList itemData={this.state.itemsData}
+        itemRender={MediaEntry} />
+    );
+  }
 }

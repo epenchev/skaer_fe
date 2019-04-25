@@ -1,20 +1,13 @@
 import React, { Component } from "react";
 import {Toolbar} from "./Toolbar";
-import {MediaList} from "./MediaList";
-import {fetchProviders} from "./ApiCalls";
-import {fetchProviderEntries} from "./ApiCalls";
-import {MediaEntry} from "./MediaEntry";
-import {ProviderEntry} from "./ProviderEntry";
+import {ProvidersList} from "./Lists/ProvidersList";
+import {MediaList} from "./Lists/MediaList";
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import "./App.css";
-
 import { library, config } from "@fortawesome/fontawesome-svg-core"
 import { faIgloo } from "@fortawesome/free-solid-svg-icons"
 
 library.add(faIgloo)
-
-function apiFetchProvidersEntries(onSuccess) {
-  fetchProviderEntries("2", onSuccess);
-}
 
 class App extends Component {
   constructor(props) {
@@ -24,30 +17,21 @@ class App extends Component {
   }
 
   toolbarHandleSelect(eventKey) {
-    this.setState({ toolbrarSelection: eventKey });
+    // this.setState({ toolbrarSelection: eventKey });
   }
 
-  createMediaList() {
-    let list;
-    const selection = this.state.toolbrarSelection;
-    if (selection === "2") {
-        // User collections
-    } else if (selection == "3") {
-        // User playlists
-    } else if (selection === "4") {
-        // Content providers (online media)
-        list = <MediaList loadData={fetchProviders} itemRenderer={ProviderEntry} />;
-    }
-    return list;
-  }
 
   render() {
-    let list = this.createMediaList();
     return (
       <div className="App">
-        <Toolbar onSelection={this.toolbarHandleSelect}/>
+        <Toolbar />
         <div className="container">
-        {list}
+        <BrowserRouter>
+          <Switch>
+            <Route path={"/providers"} component={ProvidersList} />
+            <Route path={"/provider/:id"} component={MediaList} />
+          </Switch>
+        </BrowserRouter>
         </div>
       </div>
     );

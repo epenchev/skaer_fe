@@ -13,12 +13,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 const DropDownProps = {
-  "1" : { title: "Create Collection", icon: faFolderPlus },
-  "2" : { title: "Collections", icon: faFolder },
-  "3" : { title: "Playlists", icon: faList },
-  "4" : { title: "Online Content", icon: faGlobe },
-  "5" : { title: "Settings", icon: faCog },
-  "6" : { title: "Help", icon: faQuestionCircle }
+  "1" : { title: "Create Collection", icon: faFolderPlus, target: "#" },
+  "2" : { title: "Collections", icon: faFolder, target: "/collections" },
+  "3" : { title: "Playlists", icon: faList, target: "/playlists" },
+  "4" : { title: "Online Content", icon: faGlobe, target: "/providers" },
+  "5" : { title: "Settings", icon: faCog, target: "/settings" },
+  "6" : { title: "Help", icon: faQuestionCircle, target: "/help" }
 };
 
 class DropdownItem extends React.Component {
@@ -29,8 +29,9 @@ class DropdownItem extends React.Component {
   render() {
     const title = DropDownProps[this.props.eventKey].title;
     const faIcon = DropDownProps[this.props.eventKey].icon;
+    const target = DropDownProps[this.props.eventKey].target;
     return (
-      <NavDropdown.Item eventKey={this.props.eventKey}>
+      <NavDropdown.Item href={target} eventKey={this.props.eventKey}>
         <div>
           <FontAwesomeIcon icon={faIcon} className="dropdown-item-icon"/>
           <span className="dropdown-item-label">{title}</span>
@@ -43,24 +44,14 @@ class DropdownItem extends React.Component {
 export class Toolbar extends  React.Component {
   constructor(props, context) {
     super(props);
-    this.state = { selected: "2" };
-    this.handleSelect = this.handleSelect.bind(this);
-  }
-
-  handleSelect(eventKey) {
-    this.setState({ selected: eventKey });
-    // Notify parent
-    this.props.onSelection(eventKey);
   }
 
   render() {
-    const selTitle = DropDownProps[this.state.selected].title;
-    const selIcon = DropDownProps[this.state.selected].icon;
-      return (
+     return (
       <Navbar expand="lg" fixed="top" className="navbar navbar-expand-md navbar-dark navbar-theme">
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav variant="pills" activeKey="0" className="mr-auto" onSelect={k => this.handleSelect(k)}>
+          <Nav variant="pills" activeKey="0" className="mr-auto">
             <NavDropdown className="navbar-dropdown"
               title={<div><FontAwesomeIcon icon={faThLarge} className="dropdown-main-item-icon"/></div> } 
             id="basic-nav-dropdown">
