@@ -20,12 +20,12 @@ function callApi(apiUrl, onSuccess) {
 }
 
 export function fetchProviders(onSuccess) {
-  const apiUrl = `http://localhost:8080/providers_list`;
+  const apiUrl = `http://localhost:8080/api/providers`;
   callApi(apiUrl, onSuccess);
 }
 
 export function fetchProviderEntries(provid, onSuccess = null) {
-  const apiUrl = `http://localhost:8080/provider_entries?provid=`;
+  const apiUrl = `http://localhost:8080/api/providerItems?provid=`;
   callApi(apiUrl + provid, onSuccess);
 }
 
