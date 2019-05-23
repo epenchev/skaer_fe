@@ -25,7 +25,7 @@ export function fetchProviders(onSuccess) {
 }
 
 export function fetchProviderEntries(provid, onSuccess = null) {
-  const apiUrl = `http://localhost:8080/api/providerItems?provid=`;
+  const apiUrl = `http://localhost:8080/api/playlists?provider_id=`;
   callApi(apiUrl + provid, onSuccess);
 }
 
