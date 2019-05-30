@@ -12,14 +12,7 @@ library.add(faIgloo)
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { toolbrarSelection: "2" };
-    this.toolbarHandleSelect = this.toolbarHandleSelect.bind(this);
   }
-
-  toolbarHandleSelect(eventKey) {
-    // this.setState({ toolbrarSelection: eventKey });
-  }
-
 
   render() {
     return (
