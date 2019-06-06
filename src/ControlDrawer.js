@@ -3,12 +3,15 @@ import { withStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import Drawer from '@material-ui/core/Drawer';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import AddLibIcon from '@material-ui/icons/LibraryAdd';
 import LibIcon from '@material-ui/icons/LibraryBooks';
-import MailIcon from '@material-ui/icons/Mail';
-import ListItemText from '@material-ui/core/ListItemText';
-import Drawer from '@material-ui/core/Drawer';
+import ListIcon from '@material-ui/icons/List';
+import OnlineIcon from '@material-ui/icons/Input';
+import SettingsIcon from '@material-ui/icons/Settings';
+import HelpIcon from '@material-ui/icons/Help';
 
 
 const styles = theme => ({
@@ -37,8 +40,8 @@ class DrawerList extends Component {
         <Divider />
         <List>
         {[ { title: 'Collections', icon: LibIcon }, 
-            { title: 'Playlists', icon: LibIcon},
-            { title: 'Online Content', icon: LibIcon }
+            { title: 'Playlists', icon: ListIcon},
+            { title: 'Online Content', icon: OnlineIcon }
           ].map((entry, index) => (
               <ListItem button key={entry.title}>
                 <ListItemIcon><entry.icon /></ListItemIcon>
@@ -48,10 +51,13 @@ class DrawerList extends Component {
         </List>
         <Divider />
         <List>
-          {['Settings', 'Help'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon><MailIcon /></ListItemIcon>
-              <ListItemText primary={text} />
+          {[
+            { title: 'Settings', icon: SettingsIcon },
+            { title: 'Help',  icon: HelpIcon }
+          ].map((entry, index) => (
+            <ListItem button key={entry.title}>
+              <ListItemIcon><entry.icon /></ListItemIcon>
+              <ListItemText primary={entry.title} />
             </ListItem>
         ))}
         </List>

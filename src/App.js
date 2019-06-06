@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ControlPanel from './ControlPanel';
 import ControlDrawer from './ControlDrawer';
+import  FullWidthGrid  from './ProvidersList';
 
 
 class App extends Component {
@@ -17,8 +18,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <ControlPanel onMenuButton={this.onClickCPanelMenu} />
-      <ControlDrawer open={this.state.showDrawer} onClick={this.onClickCPanelMenu} />
+        <ControlPanel onMenuButton={this.onClickCPanelMenu} />
+        <ControlDrawer open={this.state.showDrawer} onClick={this.onClickCPanelMenu} />
+        <FullWidthGrid />
       </div>
     );
   }
