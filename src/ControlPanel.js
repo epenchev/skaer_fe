@@ -11,15 +11,22 @@ import CastIcon from '@material-ui/icons/Cast';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import InputBase from '@material-ui/core/InputBase';
 import { fade } from '@material-ui/core/styles/colorManipulator';
+import './Toolbar.css'; 
 
 
 const styles = theme => ({
+  root: {
+    flexGrow: 1,
+  },
+
   menuButton: {
     flexGrow: 1,
   },
 
   functionButtons: {
     flexGrow: 1,
+    outline: 'none',
+    borderStyle: 'none',
   },
 
   buttonsBox: {
@@ -71,6 +78,7 @@ class ControlPanel extends Component {
   render() {
     const {classes} = this.props;
     return (
+        <div className={classes.root}>
         <AppBar position='static'>
           <Toolbar>
             <div className={classes.menuButton}>
@@ -107,6 +115,7 @@ class ControlPanel extends Component {
             </div>
           </Toolbar>
        </AppBar>
+       </div>
     );
   }
 }

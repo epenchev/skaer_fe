@@ -3,6 +3,8 @@
   outline: none;
 }
 
+button:focus { outline: none; }
+
 .navbar-theme {
   background-color: #282828;
 }

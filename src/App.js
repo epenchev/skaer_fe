@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import ControlPanel from './ControlPanel';
 import ControlDrawer from './ControlDrawer';
-import  FullWidthGrid  from './ProvidersList';
+import FullWidthGrid from './ProvidersList';
+import MediaItemsGrid from './MediaItemsGrid.js';
+import {ProvidersList} from "./Lists/ProvidersList";
 
 
 class App extends Component {
