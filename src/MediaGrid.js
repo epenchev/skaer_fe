@@ -8,9 +8,11 @@ export default class MediaGrid extends React.Component {
   }
 
   render() {
-    const elements = this.props.items.map(value => (
-      React.createElement(this.props.gridItem, value)
-    ));
+    const elements = this.props.items.map((d, index) => {
+      let newProps = Object.assign({key: index}, d);
+      console.log(newProps);
+      return React.createElement(this.props.gridItem, newProps);
+    });
     return (
       <div id='media-grid'>
         <Grid container xs={12} spacing={2}>

@@ -7,6 +7,7 @@ import './styles/providers.css';
 class ListEntry extends React.Component {
   render() {
     const targetUrl = "/provider/" + this.props.id;
+    console.log(this.props.name);
     return (
       <a href={targetUrl} id={this.props.id} className="cover-photo">
         <img src={this.props.cover_image} alt={this.props.name}/>
