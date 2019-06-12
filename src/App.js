@@ -1,10 +1,7 @@
 import React, { Component } from "react";
 import ControlPanel from './ControlPanel';
 import ControlDrawer from './ControlDrawer';
-import FullWidthGrid from './ProvidersList';
-import MediaItemsGrid from './MediaItemsGrid.js';
-import {ProvidersList} from "./Lists/ProvidersList";
-
+import ProvidersList from './ProvidersList';
 
 class App extends Component {
   constructor(props) {
@@ -22,7 +19,7 @@ class App extends Component {
       <div className="App">
         <ControlPanel onMenuButton={this.onClickCPanelMenu} />
         <ControlDrawer open={this.state.showDrawer} onClick={this.onClickCPanelMenu} />
-        <FullWidthGrid />
+        <ProvidersList />
       </div>
     );
   }
