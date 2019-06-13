@@ -2,6 +2,7 @@ import React from 'react';
 import MediaGrid from './MediaGrid';
 import {fetchProviders} from './ApiCalls';
 import './styles/providers.css';
+import './styles/grid.css';
 
 
 class ListEntry extends React.Component {
@@ -31,9 +32,13 @@ export default class ProvidersList extends React.Component {
   }
 
   render() {
-    return(
-      <MediaGrid items={this.state.providers}
-        gridItem={ListEntry} />
+    return (
+      <div className='grid-container'>
+        <div className='grid-list'>
+          <MediaGrid items={this.state.providers}
+            gridItem={ListEntry} />
+        </div>
+      </div>
     );
   }
 }

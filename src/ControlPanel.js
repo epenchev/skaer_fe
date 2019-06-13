@@ -79,8 +79,8 @@ class ControlPanel extends Component {
     const {classes} = this.props;
     return (
         <div className={classes.root}>
-        <AppBar position='static'>
-          <Toolbar>
+        <AppBar position='sticky'>
+          <Toolbar position='sticky'>
             <div className={classes.menuButton}>
               <IconButton onClick={this.props.onMenuButton} edge="start"
                   className={classes.menuButton} color="inherit" aria-label="Menu">

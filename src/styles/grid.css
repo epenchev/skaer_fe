@@ -1,31 +1,58 @@
+.grid-container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.grid-list {
+  margin-top: 20px;
+  /*display: flex;*/
+  /*flex-direction: row;*/
+  /*flex-wrap: wrap;*/
+  width: 100%;
+  /*justify-content: flex-start;*/
+  align-content: center;
+}
+
+
+/* Desktops Screen = 1281px to higher resolution desktops */
 @media (min-width: 1281px) {
-  .elem-width {
-    width: 14%;
+  .grid-container {
+    max-width: 1280px;
+    margin: 0 auto;
   }
 }
+
+/* Screen - 1025px to 1280px Laptops, Desktops */
 
 @media (min-width: 1025px) and (max-width: 1280px) {
-  .elem-width {
-    width: 20%;
+  .grid-container {
+    max-width: 1024px;
+    margin: 0 auto;
   }
 }
 
+
+/* Tablets, Ipads (portrait) Screen - 768px to 1024px */
 @media (min-width: 768px) and (max-width: 1024px) {
-  .elem-width {
-    width: 25%;
+  .grid-container {
+    max-width: 768px;
+    margin: 0 auto;
   }
 }
 
-@media (min-width: 481px) and (max-width: 767px) {
-  .elem-width {
-    width: 49%;
+/* Low Resolution Tablets, Mobiles (Landscape) Screen - 481px to 767px */
+@media (min-width: 481px) and (max-width: 767px) { 
+  .grid-container {
+    max-width: 300px;
+    margin: 0 auto;
   }
 }
 
+/* Most of the Smartphones Mobiles (Portrait) Screen = B/w 320px to 479px */
 @media (min-width: 320px) and (max-width: 480px) {
-  .elem-width {
-    width: 100%;
+  .grid-container {
+    max-width: 240px;
+    margin: 0 auto;
   }
 }
-
 

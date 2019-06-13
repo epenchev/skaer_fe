@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import ControlPanel from './ControlPanel';
 import ControlDrawer from './ControlDrawer';
 import ProvidersList from './ProvidersList';
+import MediaList from './MediaList';
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
+
 
 class App extends Component {
   constructor(props) {
@@ -19,7 +22,12 @@ class App extends Component {
       <div className="App">
         <ControlPanel onMenuButton={this.onClickCPanelMenu} />
         <ControlDrawer open={this.state.showDrawer} onClick={this.onClickCPanelMenu} />
-        <ProvidersList />
+        <BrowserRouter>
+          <Switch>
+            <Route path={"/providers"} component={ProvidersList} />
+            <Route path={"/provider/:id"} component={MediaList} />
+          </Switch>
+        </BrowserRouter>
       </div>
     );
   }

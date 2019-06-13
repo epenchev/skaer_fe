@@ -32,18 +32,18 @@ class DrawerList extends Component {
     return (
       <div className={classes.list}>
         <List>
-            <ListItem className={classes.listItem} button component='a' href="#simple">
+            <ListItem className={classes.listItem} button component='a' href="/add_collection">
               <ListItemIcon><AddLibIcon /></ListItemIcon>
               <ListItemText primary='Add Collection'/>
             </ListItem>
         </List>
         <Divider />
         <List>
-        {[ { title: 'Collections', icon: LibIcon }, 
-            { title: 'Playlists', icon: ListIcon},
-            { title: 'Online Content', icon: OnlineIcon }
+        {[ { title: 'Collections', icon: LibIcon, href: '/collections' },
+            { title: 'Playlists', icon: ListIcon, href: '/playlists' },
+            { title: 'Online Content', icon: OnlineIcon, href: '/providers' }
           ].map((entry, index) => (
-              <ListItem button key={entry.title}>
+              <ListItem button key={entry.title} className={classes.listItem} component='a' href={entry.href}>
                 <ListItemIcon><entry.icon /></ListItemIcon>
                 <ListItemText primary={entry.title} />
               </ListItem>
@@ -52,8 +52,8 @@ class DrawerList extends Component {
         <Divider />
         <List>
           {[
-            { title: 'Settings', icon: SettingsIcon },
-            { title: 'Help',  icon: HelpIcon }
+            { title: 'Settings', icon: SettingsIcon, href: '/settings' },
+            { title: 'Help',  icon: HelpIcon, href: '/help' }
           ].map((entry, index) => (
             <ListItem button key={entry.title}>
               <ListItemIcon><entry.icon /></ListItemIcon>
