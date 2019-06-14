@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './styles/media.css';
 
 
-class MediaEntry extends React.Component {
+class PlaylistEntry extends React.Component {
   constructor(props) {
     super(props);
     this.state = { iconOpacity: 0 };
@@ -41,7 +41,7 @@ class MediaEntry extends React.Component {
       }
 }
 
-export default class MediaList extends React.Component {
+export default class ProviderPlaylists extends React.Component {
   constructor(props) {
     super(props);
     this.state = { itemsData: [] };
@@ -58,7 +58,7 @@ export default class MediaList extends React.Component {
       <div className='grid-container'>
         <div className='grid-list'>
           <MediaGrid items={this.state.itemsData}
-            gridItem={MediaEntry} />
+            gridItem={PlaylistEntry} />
         </div>
       </div>
     );

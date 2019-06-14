@@ -5,7 +5,7 @@ import './styles/providers.css';
 import './styles/grid.css';
 
 
-class ListEntry extends React.Component {
+class GridEntry extends React.Component {
   render() {
     const targetUrl = "/provider/" + this.props.id;
     console.log(this.props.name);
@@ -19,7 +19,7 @@ class ListEntry extends React.Component {
   }
 }
 
-export default class ProvidersList extends React.Component {
+export default class ProvidersGrid extends React.Component {
   constructor(props) {
     super(props);
     this.state = { providers: [] };
@@ -36,7 +36,7 @@ export default class ProvidersList extends React.Component {
       <div className='grid-container'>
         <div className='grid-list'>
           <MediaGrid items={this.state.providers}
-            gridItem={ListEntry} />
+            gridItem={GridEntry} />
         </div>
       </div>
     );

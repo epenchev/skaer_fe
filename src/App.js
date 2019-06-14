@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import ControlPanel from './ControlPanel';
 import ControlDrawer from './ControlDrawer';
-import ProvidersList from './ProvidersList';
-import MediaList from './MediaList';
+import ProvidersGrid from './ProvidersGrid';
+import ProviderPlaylists from './ProviderPlaylists';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
 
@@ -24,8 +24,8 @@ class App extends Component {
         <ControlDrawer open={this.state.showDrawer} onClick={this.onClickCPanelMenu} />
         <BrowserRouter>
           <Switch>
-            <Route path={"/providers"} component={ProvidersList} />
-            <Route path={"/provider/:id"} component={MediaList} />
+            <Route path={"/providers"} component={ProvidersGrid} />
+            <Route path={"/provider/:id"} component={ProviderPlaylists} />
           </Switch>
         </BrowserRouter>
       </div>
