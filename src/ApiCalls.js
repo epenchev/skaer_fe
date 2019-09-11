@@ -1,3 +1,5 @@
+const api_endpoint = '35.246.188.54';
+
 function callApi(apiUrl, onSuccess) {
   fetch(apiUrl)
     .then(response => {
@@ -20,12 +22,12 @@ function callApi(apiUrl, onSuccess) {
 }
 
 export function fetchProviders(onSuccess) {
-  const apiUrl = `http://localhost:8080/api/providers`;
+  const apiUrl = `http://${api_endpoint}:8080/api/providers`;
   callApi(apiUrl, onSuccess);
 }
 
 export function fetchProviderEntries(provid, onSuccess = null) {
-  const apiUrl = `http://localhost:8080/api/playlists?provider_id=`;
+  const apiUrl = `http:///${api_endpoint}:8080/api/playlists?provider_id=`;
   callApi(apiUrl + provid, onSuccess);
 }
 
